@@ -24,8 +24,8 @@ phases:
       # - mv * build/.
       - aws s3 sync build/ s3://test-iccc-bucket/ --region eu-central-1 --delete
 
-artifacts:
-  # files:
-  #   - '**/*'
-  base-directory: $CODEBUILD_SRC_DIR/
-  # discard-paths: no
+# artifacts:
+#   # files:
+#   #   - '**/*'
+#   base-directory: $CODEBUILD_SRC_DIR/
+#   # discard-paths: no
