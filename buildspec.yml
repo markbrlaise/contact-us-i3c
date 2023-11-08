@@ -20,7 +20,7 @@ phases:
     commands:
       - echo "Post-building website"
       - ls
-      # - mkdir build
+      # - mkdir buildh
       # - mv * build/.
       - aws s3 sync build/ s3://test-iccc-bucket/ --region eu-central-1 --delete
 
