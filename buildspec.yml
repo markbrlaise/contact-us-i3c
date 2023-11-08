@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-version:
+      nodejs: 18
+
+  pre_build:
+    commands:
+      - echo "Building website"
+
+  build:
+    commands:
+      - npm install -g sass
+      # - sass source/scss/main.css dist
+      # - npm install -g http-server
+      # - http-server
+  
+  post_build:
+    commands:
+      - echo "Post-building website"
+      - aws sync * s3://test-iccc-bucket --region eu-central-1 --delete
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: $CODEBUILD_SRC_DIR/
+  discard-paths: no
