@@ -20,7 +20,9 @@ phases:
     commands:
       - echo "Post-building website"
       - ls
-      - aws s3 sync / s3://test-iccc-bucket/ --region eu-central-1 --delete
+      - mkdir build
+      - mv * build/.
+      - aws s3 sync build/ s3://test-iccc-bucket/ --region eu-central-1 --delete
 
 artifacts:
   files:
