@@ -15,15 +15,17 @@ phases:
       # - sass source/scss/main.css dist
       # - npm install -g http-server
       # - http-server
-  
-  post_build:
-    commands:
       - echo "Post-building website"
       - ls
       # - mkdir buildh
       # - mv * build/.
       - aws s3 sync build/ s3://test-iccc-bucket/ --region eu-central-1 --delete
-
+    finally:
+      - echo "Build done successfully"
+  
+  # post_build:
+  #   commands:
+      
 # artifacts:
 #   # files:
 #   #   - '**/*'
