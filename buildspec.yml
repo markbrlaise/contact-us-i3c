@@ -19,7 +19,8 @@ phases:
   post_build:
     commands:
       - echo "Post-building website"
-      - aws s3 sync * s3://test-iccc-bucket --region eu-central-1 --delete
+      - ls
+      - aws s3 sync * s3://test-iccc-bucket/ --region eu-central-1 --delete
 
 artifacts:
   files:
