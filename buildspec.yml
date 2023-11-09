@@ -11,23 +11,7 @@ phases:
 
   build:
     commands:
-      # - npm install -g sass
-      # - sass source/scss/main.css dist
-      # - npm install -g http-server
-      # - http-server
       - echo "Post-building website"
-      - ls
-      # - mkdir buildh
-      # - mv * build/.
       - aws s3 sync build/ s3://test-iccc-bucket/ --region eu-central-1 --delete
     finally:
       - echo "Build done successfully"
-  
-  # post_build:
-  #   commands:
-      
-# artifacts:
-#   # files:
-#   #   - '**/*'
-#   base-directory: $CODEBUILD_SRC_DIR/
-#   # discard-paths: no
